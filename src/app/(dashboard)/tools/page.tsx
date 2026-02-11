@@ -3,55 +3,41 @@ import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 import {
   Calculator,
-  FileText,
-  MapPin,
-  BarChart3,
+  Clock,
+  Coins,
   Building2,
-  Search,
+  ExternalLink,
 } from "lucide-react";
 
 const allTools = [
   {
-    slug: "deal-analyzer",
-    name: "Deal Analyzer",
-    description: "Analyze potential CRE deals with financial modeling",
+    slug: "hbu-land-use",
+    name: "HBU Land Use Calculator",
+    description: "Analyze highest and best use scenarios for land parcels",
     icon: Calculator,
     roles: ["ADMIN", "STAFF", "CLIENT"],
   },
   {
-    slug: "comp-search",
-    name: "Comp Search",
-    description: "Search comparable sales and lease transactions",
-    icon: Search,
-    roles: ["ADMIN", "STAFF", "CLIENT"],
+    slug: "golf-tee-time",
+    name: "Golf Tee Time Booker",
+    description: "Automated tee time booking status and logs",
+    icon: Clock,
+    roles: ["ADMIN", "STAFF"],
   },
   {
-    slug: "market-reports",
-    name: "Market Reports",
-    description: "View and generate market analysis reports",
-    icon: BarChart3,
-    roles: ["ADMIN", "STAFF", "CLIENT"],
+    slug: "token-tracker",
+    name: "Token Tracker",
+    description: "Track AI token usage and API costs",
+    icon: Coins,
+    roles: ["ADMIN"],
   },
   {
-    slug: "property-tracker",
-    name: "Property Tracker",
-    description: "Track active listings and pipeline properties",
+    slug: "la-developer-pipeline",
+    name: "LA Developer Pipeline",
+    description: "Los Angeles commercial real estate developer pipeline tracker",
     icon: Building2,
     roles: ["ADMIN", "STAFF"],
-  },
-  {
-    slug: "document-generator",
-    name: "Document Generator",
-    description: "Generate LOIs, proposals, and offering memorandums",
-    icon: FileText,
-    roles: ["ADMIN", "STAFF"],
-  },
-  {
-    slug: "mapping",
-    name: "Mapping Tool",
-    description: "Interactive property mapping and area analysis",
-    icon: MapPin,
-    roles: ["ADMIN", "STAFF"],
+    external: true,
   },
 ];
 
@@ -80,6 +66,9 @@ export default async function ToolsPage() {
                 <tool.icon className="text-blue-600" size={20} />
               </div>
               <h3 className="font-semibold text-gray-900">{tool.name}</h3>
+              {"external" in tool && tool.external && (
+                <ExternalLink className="ml-auto text-gray-400" size={16} />
+              )}
             </div>
             <p className="text-sm text-gray-500">{tool.description}</p>
           </Link>

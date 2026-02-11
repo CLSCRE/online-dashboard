@@ -28,7 +28,9 @@ export default function DashboardCards({ role, userName }: DashboardCardsProps) 
           </div>
           <div>
             <p className="text-sm text-gray-500">Tools</p>
-            <p className="font-semibold text-gray-900">Browse available tools</p>
+            <p className="font-semibold text-gray-900">
+              HBU Calculator, Golf Booker & more
+            </p>
           </div>
         </div>
         <a
